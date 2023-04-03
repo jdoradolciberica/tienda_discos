@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @cancion %>
+
+<div>
+  <%= link_to "Edit this cancion", edit_cancion_path(@cancion) %> |
+  <%= link_to "Back to cancions", canciones_path %>
+
+  <%= button_to "Destroy this cancion", @cancion, method: :delete %>
+</div>

@@ -4,6 +4,7 @@ class Disco < ApplicationRecord
 ### Associations
 ###  
   belongs_to :artista
+  has_many :canciones
 
 ###
 ### Validations
