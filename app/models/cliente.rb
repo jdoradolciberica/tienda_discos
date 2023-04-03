@@ -1,5 +1,9 @@
 class Cliente < ApplicationRecord
 ###
+### Associations
+###
+    has_many :pedidos
+###
 ### Validations
 ###
     validates :nombre, presence: true
