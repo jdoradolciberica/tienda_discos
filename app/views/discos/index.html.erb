@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Discos</h1>
+
+<div id="discos">
+  <% @discos.each do |disco| %>
+    <%= render disco %>
+    <p>
+      <%= link_to "Show this disco", disco %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New disco", new_disco_path %>

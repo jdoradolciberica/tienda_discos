@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @disco %>
+
+<div>
+  <%= link_to "Edit this disco", edit_disco_path(@disco) %> |
+  <%= link_to "Back to discos", discos_path %>
+
+  <%= button_to "Destroy this disco", @disco, method: :delete %>
+</div>

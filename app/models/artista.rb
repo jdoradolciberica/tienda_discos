@@ -3,7 +3,7 @@ class Artista < ApplicationRecord
 ###
 ### Associations
 ###
-
+    has_many :discos
 ###
 ### Validations
 ###
