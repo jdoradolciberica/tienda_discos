@@ -3,7 +3,8 @@ class DiscosController < ApplicationController
 
   # GET /discos or /discos.json
   def index
-    @discos = Disco.all
+    @pagy, @discos = pagy(Disco.all)
+    
   end
 
   # GET /discos/1 or /discos/1.json

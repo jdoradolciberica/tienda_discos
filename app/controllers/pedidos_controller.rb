@@ -3,7 +3,7 @@ class PedidosController < ApplicationController
 
   # GET /pedidos or /pedidos.json
   def index
-    @pedidos = Pedido.all
+    @pagy, @pedidos = pagy(Pedido.all)
   end
 
   # GET /pedidos/1 or /pedidos/1.json
