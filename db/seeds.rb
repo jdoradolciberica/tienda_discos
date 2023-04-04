@@ -67,7 +67,7 @@ end
 200.times do
     cliente = Cliente.create(
         nombre: FFaker::Name.name,
-        email: FFaker::Internet.email,
+        email: FFaker::Internet.unique.email,
         password_digest: generar_password_digest
     )
 
