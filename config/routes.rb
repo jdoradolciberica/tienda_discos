@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "discos#index"
   resources :pedidos
   resources :clientes
   resources :canciones
