@@ -33,7 +33,7 @@ end
 100.times do
     artista = Artista.create(
         nombre: FFaker::Music.artist,
-        fecha_nacimiento: FFaker::Time.between(Date.new(1940), Date.new(2003)),
+        fecha_nacimiento: FFaker::Time.between(Date.new(1940), Date.new(2002)),
         procedencia: FFaker::Address.country
     )
     ###
@@ -45,7 +45,8 @@ end
             nombre: FFaker::Music.album,
             descripcion: FFaker::Lorem.paragraph,
             genero: FFaker::Music.genre,
-            precio: generador_precios.rng.round(2).abs
+            precio: generador_precios.rng.round(2).abs,
+            fecha_lanzamiento: FFaker::Time.between(artista.fecha_nacimiento + 18.years, Date.new(2023))
         )
 
         ###
