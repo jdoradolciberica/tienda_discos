@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'registros/new'
+  get 'registros/create'
   root "discos#index"
   resources :pedidos
   resources :clientes

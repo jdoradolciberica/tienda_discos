@@ -1,10 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @disco %>
-
-<div>
-  <%= link_to "Edit this disco", edit_disco_path(@disco) %> |
-  <%= link_to "Back to discos", discos_path %>
-
-  <%= button_to "Destroy this disco", @disco, method: :delete %>
+<div class="d-flex w-75 m-auto mt-5">
+  <%= image_tag "disco.png", class: "w-25" %>
+  <div class=" ps-5 pt-2">
+    <div class="">
+      <h2 class=""><%= @disco.nombre %></h2>
+      <h3><a href="<%= artista_path(@disco.artista) %>" class="text-decoration-none "><%= @disco.artista.nombre %></a></h3>
+    </div>
+    <div class="mt-4">
+      <p><span class="badge bg-success fs-6"><%= @disco.genero %></span></p>
+      <p>Lanzado en <span ><%= @disco.fecha_lanzamiento.year %></span></p>
+    </div>
+    
+  </div>
 </div>

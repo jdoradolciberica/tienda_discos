@@ -1,16 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Discos</h1>
+<h1 class="ms-5">Discos</h1>
 
-<div id="discos">
-  <% @discos.each do |disco| %>
-    <%= render disco %>
-    <p>
-      <%= link_to "Show this disco", disco %>
-    </p>
-  <% end %>
+
+<div id="discos" class="container m-auto mt-5  ">
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+    <% @discos.each do |disco| %>
+    <div class="col">
+      <%= render disco %>
+    </div>
+    <% end %>
+
+    </div>
 </div>
 
-<%= link_to "New disco", new_disco_path %>
+<div class="d-flex mt-4 m-auto justify-content-center">
+<%== pagy_bootstrap_nav(@pagy) %>
+</div>
 
-<%== pagy_nav(@pagy)  %>

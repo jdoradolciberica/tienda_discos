@@ -11,6 +11,22 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand navbar-dark bg-dark sticky-top">
+      <div class="container-fluid ">
+        <div class="d-flex">
+          <a href="/" class="navbar-brand" >Tienda Discos</a>
+          <div class="navbar-nav ms-5">
+            <a class="nav-link" href="<%= discos_path %>">Discos</a>
+            <a class="nav-link" href="<%= artistas_path %>">Artistas</a>
+          </div>
+        </div>
+
+        <div>
+          <%= yield(:navsession) if content_for?(:navsession) %>
+        </div>
+      </div>
+        
+    </nav>
     <%= yield %>
   </body>
 </html>

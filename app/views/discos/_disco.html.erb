@@ -1,27 +1,8 @@
-<div id="<%= dom_id disco %>">
-  <p>
-    <strong>Nombre:</strong>
-    <%= disco.nombre %>
-  </p>
-
-  <p>
-    <strong>Artista:</strong>
-    <%= disco.artista_id %>
-  </p>
-
-  <p>
-    <strong>Descripcion:</strong>
-    <%= disco.descripcion %>
-  </p>
-
-  <p>
-    <strong>Genero:</strong>
-    <%= disco.genero %>
-  </p>
-
-  <p>
-    <strong>Precio:</strong>
-    <%= disco.precio %>
-  </p>
+<div id="<%= dom_id disco %>" class="card" >
+  <%= image_tag "disco.png", class: "card-img-top" %>
+  <div class="card-body">
+    <a class="text-decoration-none" href="<%= disco_path(disco) %>"><h5 class="card-title text-truncate"><%= disco.nombre %></h5></a>
+    <a class="text-decoration-none" href="<%= artista_path(disco.artista) %>"><h6 class="card-subtitle text-truncate"><%= disco.artista.nombre %></h6></a>
+  </div>
 
 </div>
