@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  get 'home/index'
   get 'registros/new'
   get 'registros/create'
-  root "discos#index"
+  root "home#index"
   resources :pedidos
   resources :clientes
   resources :canciones
