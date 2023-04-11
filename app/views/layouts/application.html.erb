@@ -10,23 +10,39 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <nav class="navbar navbar-expand navbar-dark bg-dark sticky-top">
-      <div class="container-fluid ">
-        <div class="d-flex">
-          <a href="/" class="navbar-brand" >Tienda Discos</a>
-          <div class="navbar-nav ms-5">
-            <a class="nav-link" href="<%= discos_path %>">Discos</a>
-            <a class="nav-link" href="<%= artistas_path %>">Artistas</a>
+  <body class="m-0 p-0 d-flex min-vh-100 flex-column justify-content-between">
+    <div>
+      <nav class="navbar navbar-expand navbar-dark bg-dark sticky-top">
+        <div class="container-fluid ">
+          <div class="d-flex">
+            <a href="/" class="navbar-brand" >Tienda Discos</a>
+            <div class="navbar-nav ms-5">
+              <a class="nav-link" href="<%= discos_path %>">Discos</a>
+              <a class="nav-link" href="<%= artistas_path %>">Artistas</a>
+            </div>
+          </div>
+
+          <div>
+            <%= yield(:navsession) if content_for?(:navsession) %>
           </div>
         </div>
-
-        <div>
-          <%= yield(:navsession) if content_for?(:navsession) %>
-        </div>
-      </div>
-        
+          
+      </nav>
+      <%= yield %>
+    </div>
+    
+  <footer class="bg-dark m-0 d-flex p-3 justify-content-around align-items-center">
+    <h2 class="text-white">
+      Tienda Discos
+    </h2>
+    <nav class="nav">
+      <a href="#" class="nav-link link-info">Contáctanos</a>
+      <a href="#" class="nav-link link-info">Sobre la tienda</a>
+      <a href="#" class="nav-link link-info">FAQ</a>
     </nav>
-    <%= yield %>
-  </body>
+    
+  </footer>
+</body>
+
+  
 </html>
