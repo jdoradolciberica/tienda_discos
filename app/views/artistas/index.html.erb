@@ -1,16 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Artista</h1>
+<h1 class="ms-5">Artistas</h1>
 
-<div id="artistas">
-  <% @artistas.each do |artista| %>
-    <%= render artista %>
-    <p>
-      <%= link_to "Show this artista", artista %>
-    </p>
-  <% end %>
+
+<div id="discos" class="container m-auto mt-5  ">
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+    <% @artistas.each do |artista| %>
+    <div class="col">
+      <%= render artista %>
+    </div>
+    <% end %>
+
+    </div>
 </div>
 
-<%= link_to "New artista", new_artista_path %>
-
-<%== pagy_nav(@pagy)  %>
+<div class="d-flex mt-4 m-auto justify-content-center">
+<%== pagy_bootstrap_nav(@pagy) %>
+</div>

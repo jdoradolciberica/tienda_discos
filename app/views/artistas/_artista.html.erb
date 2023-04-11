@@ -1,17 +1,7 @@
-<div id="<%= dom_id artista %>">
-  <p>
-    <strong>Nombre:</strong>
-    <%= artista.nombre %>
-  </p>
-
-  <p>
-    <strong>Fecha nacimiento:</strong>
-    <%= artista.fecha_nacimiento %>
-  </p>
-
-  <p>
-    <strong>Procedencia:</strong>
-    <%= artista.procedencia %>
-  </p>
+<div id="<%= dom_id artista %>" class="card" >
+  <%= image_tag "artista.png", class: "card-img-top" %>
+  <div class="card-body">
+    <a class="text-decoration-none" href="<%= artista_path(artista) %>"><h6 class="card-subtitle text-truncate"><%= artista.nombre %></h6></a>
+  </div>
 
 </div>

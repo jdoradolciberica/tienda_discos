@@ -1,10 +1,31 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mb-5 mt-5 ">
+  <div class="row">
+    <div class="col-12 col-md-4">
+      <%= image_tag "artista.png", class: "w-100" %>
+    </div>
+    <div class="col-12 col-md-8">
+      <div class="ms-4 mt-2">
+        <h2 class=""><%= @artista.nombre %></h2>
+      </div>
+      <div class="mt-4 ms-4">
+        <span class="badge bg-info fs-6" ><%= @artista.fecha_nacimiento.year %></span>
+        <span class="badge bg-danger fs-6" ><%= @artista.procedencia %></span>
+      </div>
+      
+      <div class=" ms-4 mt-4">
+        <ul class="list-group">
+          <% @artista.discos.each do |disco| %>
+            <a href="<%= disco_path(disco) %>" class="list-group-item d-flex align-items-center justify-content-between">
+              
+              <span><%= image_tag "disco.png", size: "50x50" %><span class="ms-2"><%= disco.nombre %></span></span>
+              
+              <span><%= disco.fecha_lanzamiento.year %></span>
+            </a>
+          <% end %>
+        </ul>
+      </div>
+      
+    </div>
 
-<%= render @artista %>
-
-<div>
-  <%= link_to "Edit this artista", edit_artista_path(@artista) %> |
-  <%= link_to "Back to artista", artistas_path %>
-
-  <%= button_to "Destroy this artista", @artista, method: :delete %>
+  </div>
 </div>
