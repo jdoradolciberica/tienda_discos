@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   get 'home/index'
-  get 'registros/new'
-  get 'registros/create'
+  get 'home', to: "home#index"
+  get 'registro', to: "registros#new"
+  post 'registro', to: "registros#create"
   root "home#index"
   resources :pedidos
   resources :clientes
