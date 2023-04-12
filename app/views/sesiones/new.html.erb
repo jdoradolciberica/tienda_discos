@@ -1,0 +1,18 @@
+
+<%= form_with url: "/sesion",model: @cliente, class: "container d-flex flex-column border border-2 rounded rounded-3 mt-5 p-3 gap-3", html: { style: "max-width: 400px"} do |f| %>
+<h1 class="text-center display-4">Bienvenido</h1>
+
+<div>
+<%= f.label :email, class: "form-label" %>
+  <%= f.email_field :email, placeholder: "Email", class: "form-control" %>
+</div>
+  <div>
+  <%= f.label :password, class: "form-label" %>
+  <%= f.password_field :password, placeholder: "Contraseña", class: "form-control" %>
+  </div>
+
+  <div class="d-grid">
+  <%= f.submit "Iniciar Sesión", class: "btn btn-info" %>
+  </div>
+
+<% end %>

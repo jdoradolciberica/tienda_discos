@@ -1,27 +1,27 @@
 
 <%= form_with url: "/registro",model: @cliente, class: "container d-flex flex-column border border-2 rounded rounded-3 mt-5 p-3 gap-3", html: { style: "max-width: 400px"} do |f| %>
-<h1>Unete</h1>
+<h1 class="text-center display-4">Unete</h1>
 <div>
-<%= f.label :nombre %>
-  <%= f.text_field :nombre, placeholder: "Nombre" %>
+  <%= f.label :nombre, class: "form-label" %>
+  <%= f.text_field :nombre, placeholder: "Nombre", class: "form-control" %>
 </div>
 
 <div>
-<%= f.label :email %>
-  <%= f.email_field :email, placeholder: "Email" %>
+<%= f.label :email, class: "form-label" %>
+  <%= f.email_field :email, placeholder: "Email", class: "form-control" %>
 </div>
   <div>
-  <%= f.label :password %>
-  <%= f.password_field :password, placeholder: "Contraseña" %>
+  <%= f.label :password, class: "form-label" %>
+  <%= f.password_field :password, placeholder: "Contraseña", class: "form-control" %>
   </div>
   
   <div>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, placeholder: "Repite la contraseña" %>
+  <%= f.label :password_confirmation, class: "form-label" %>
+  <%= f.password_field :password_confirmation, placeholder: "Repite la contraseña", class: "form-control" %>
   </div>
 
-  <div>
-  <%= f.submit "Registrase", class: "btn-block btn-info" %>
+  <div class="d-grid">
+  <%= f.submit "Registrarse", class: "btn btn-info" %>
   </div>
 
 <% end %>

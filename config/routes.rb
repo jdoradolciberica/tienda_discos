@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'sesion', to: "sesiones#new"
+  post 'sesion', to: "sesiones#create"
+  delete 'sesion', to: "sesiones#destroy"
   get 'home/index'
   get 'home', to: "home#index"
   get 'registro', to: "registros#new"
