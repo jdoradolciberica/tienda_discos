@@ -1,10 +1,24 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mt-4 p-5">
+<h1>Perfil</h1>
 
-<%= render @cliente %>
-
-<div>
-  <%= link_to "Edit this cliente", edit_cliente_path(@cliente) %> |
-  <%= link_to "Back to clientes", clientes_path %>
-
-  <%= button_to "Destroy this cliente", @cliente, method: :delete %>
+<div class="container mt-4 border border-2 rounded rounded-2 p-3 fs-5" >
+  <p>
+    <strong>Nombre: </strong>
+    <%= @cliente.nombre %>
+  </p>
+  <p>
+    <strong>Email: </strong>
+    <%= @cliente.email %>
+  </p>
+  <p>
+    <strong>Cliente desde: </strong>
+    <%= @cliente.created_at.strftime "%d/%m/%Y" %>
+  </p>  
+  <%= link_to "Ver mis pedidos", pedidos_path(@cliente) %>
 </div>
+
+</div>
+
+
+
+
