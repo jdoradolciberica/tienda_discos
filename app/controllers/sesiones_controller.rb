@@ -20,6 +20,7 @@ class SesionesController < ApplicationController
 
   def destroy
     session[:cliente_id] = nil
+    flash[:notice] = "Cerraste sesión"
     redirect_to root_url
   end
 

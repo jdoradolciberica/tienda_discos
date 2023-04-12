@@ -7,9 +7,11 @@
   <%= f.email_field :email, placeholder: "Email", class: "form-control" %>
 </div>
   <div>
-  <%= f.label :password, class: "form-label" %>
+  <%= f.label :password, "Contraseña", class: "form-label" %>
   <%= f.password_field :password, placeholder: "Contraseña", class: "form-control" %>
   </div>
+
+  <%= link_to "No soy cliente", registro_url %>
 
   <div class="d-grid">
   <%= f.submit "Iniciar Sesión", class: "btn btn-info" %>
