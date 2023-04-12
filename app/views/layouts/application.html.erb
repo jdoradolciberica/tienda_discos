@@ -8,9 +8,11 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
   </head>
 
   <body class="m-0 p-0 d-flex min-vh-100 flex-column justify-content-between">
+
   <% if notice %>
     <p class = "alert alert-success position-fixed start-50 translate-middle" style="top: 10%; z-index: 10000"><%= notice %></p>
   <% end %>
