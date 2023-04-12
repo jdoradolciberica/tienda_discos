@@ -1,16 +1,16 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mt-4 p-5">
 
 <h1>Pedidos</h1>
 
-<div id="pedidos">
+<div class="d-flex flex-column " id="pedidos">
   <% @pedidos.each do |pedido| %>
     <%= render pedido %>
-    <p>
-      <%= link_to "Show this pedido", pedido %>
-    </p>
   <% end %>
 </div>
+<div class="d-flex justify-content-center align-items-center">
+<%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1  %>
+</div>
 
-<%= link_to "New pedido", new_pedido_path %>
 
-<%== pagy_nav(@pagy)  %>
+</div>
+

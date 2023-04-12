@@ -1,9 +1,10 @@
 class PedidosController < ApplicationController
   before_action :set_pedido, only: %i[ show edit update destroy ]
+  before_action :requiere_sesion_iniciada
 
   # GET /pedidos or /pedidos.json
   def index
-    @pagy, @pedidos = pagy(Pedido.all)
+    @pagy, @pedidos = pagy(@cliente.pedidos)
   end
 
   # GET /pedidos/1 or /pedidos/1.json
@@ -60,11 +61,17 @@ class PedidosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pedido
-      @pedido = Pedido.find(params[:id])
+      @pedido = @cliente.pedidos.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def pedido_params
       params.require(:pedido).permit(:codigo, :destino, :total, :cliente_id)
+    end
+
+    def requiere_sesion_iniciada
+      if @cliente.nil?
+        redirect_to sesion_url
+      end
     end
 end

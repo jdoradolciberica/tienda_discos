@@ -1,22 +1,14 @@
-<div id="<%= dom_id pedido %>">
-  <p>
-    <strong>Codigo:</strong>
-    <%= pedido.codigo %>
-  </p>
-
-  <p>
-    <strong>Destino:</strong>
-    <%= pedido.destino %>
-  </p>
-
-  <p>
-    <strong>Total:</strong>
-    <%= pedido.total %>
-  </p>
-
-  <p>
-    <strong>Cliente:</strong>
-    <%= pedido.cliente_id %>
-  </p>
-
-</div>
+<a href="<%= pedido_path(pedido) %>" class="my-3 fs-5 text-decoration-none border border-2 rounded rounded-3 p-3 container  text-secondary" id="<%= dom_id pedido %>">
+  <div class="row">
+    <div class="col-3">
+        <strong>Codigo:</strong><br> <%= pedido.codigo %>
+      </div>
+      <div class="col-7">
+        <strong>Destino:</strong><br> <%= pedido.destino %>
+      </div>
+      <div class="col-2 text-end">
+        <strong>Total:</strong> <br><%= pedido.total %> €
+      </div>
+  </div>
+    
+</a>
