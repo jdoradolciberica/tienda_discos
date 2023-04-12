@@ -11,14 +11,21 @@
   <%= f.email_field :email, placeholder: "Email", class: "form-control" %>
 </div>
   <div>
-  <%= f.label :password, class: "form-label" %>
+  <%= f.label :password, "Contraseña", class: "form-label" %>
   <%= f.password_field :password, placeholder: "Contraseña", class: "form-control" %>
   </div>
   
   <div>
-  <%= f.label :password_confirmation, class: "form-label" %>
+  <%= f.label :password_confirmation, "Repite la contraseña", class: "form-label" %>
   <%= f.password_field :password_confirmation, placeholder: "Repite la contraseña", class: "form-control" %>
   </div>
+
+  <div class="form-check">
+    <%= f.check_box :terminos, placeholder: "Repite la contraseña", class: "form-check-input", required: true %>
+    <%= f.label :terminos, "Acepto las condiciones de uso", class: "form-check-label" %>
+  </div>
+
+  <%= link_to "Ya soy cliente", sesion_url %>
 
   <div class="d-grid">
   <%= f.submit "Registrarse", class: "btn btn-info" %>
