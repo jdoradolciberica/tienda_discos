@@ -26,7 +26,7 @@
           <% @disco.canciones.each do |cancion| %>
             <li class="list-group-item d-flex align-items-center justify-content-between">
               <span><%= cancion.titulo %></span>
-              <span><%= cancion.duracion %></span>
+              <span><%= minutos_segundos(cancion.duracion) %></span>
             </li>
           <% end %>
         </ul>
