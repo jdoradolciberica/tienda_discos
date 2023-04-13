@@ -20,13 +20,6 @@ generador_precios = Rubystats::NormalDistribution.new(10, 1)
 generador_duracion = Rubystats::NormalDistribution.new(180, 5)
 generador_total = Rubystats::NormalDistribution.new(35, 5)
 
-def generar_password_digest()
-    password = FFaker::Internet.password
-    salt = SecureRandom.hex(4)
-    digest = Digest::SHA256.hexdigest(salt + password)
-    return salt + digest
-end
-
 ###
 ### Creando Artistas
 ###
@@ -39,7 +32,7 @@ end
     ###
     ### Creando discos para el artista recien creado
     ### 
-    SecureRandom.rand(10).times do
+    SecureRandom.rand(1..10).times do
         disco = Disco.create(
             artista: artista,
             nombre: FFaker::Music.album,
@@ -52,7 +45,7 @@ end
         ###
         ### Creando canciones para ese disco
         ###
-        (4..SecureRandom.rand(20)).each do
+        SecureRandom.rand(5..15).times do
             Cancion.create(
                 disco: disco,
                 titulo: FFaker::Music.song,
@@ -66,10 +59,12 @@ end
 ### Creando clientes
 ###
 200.times do
+    password = FFaker::Internet.password
     cliente = Cliente.create(
         nombre: FFaker::Name.name,
         email: FFaker::Internet.unique.email,
-        password_digest: generar_password_digest
+        password: password,
+        password_confirmation: password
     )
 
     SecureRandom.rand(5).times do
