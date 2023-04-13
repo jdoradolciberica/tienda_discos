@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_05_073508) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_13_085756) do
   create_table "artistas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "nombre", null: false
     t.date "fecha_nacimiento", null: false
@@ -37,6 +37,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_05_073508) do
     t.index ["email"], name: "index_clientes_on_email", unique: true
   end
 
+  create_table "disco_pedidos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "pedido_id", null: false
+    t.bigint "disco_id", null: false
+    t.integer "cantidad"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["disco_id"], name: "index_disco_pedidos_on_disco_id"
+    t.index ["pedido_id"], name: "index_disco_pedidos_on_pedido_id"
+  end
+
   create_table "discos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "nombre", null: false
     t.bigint "artista_id", null: false
@@ -52,7 +62,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_05_073508) do
   create_table "pedidos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "codigo", null: false
     t.string "destino", null: false
-    t.decimal "total", precision: 7, scale: 2, null: false
     t.bigint "cliente_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -60,6 +69,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_05_073508) do
   end
 
   add_foreign_key "canciones", "discos"
+  add_foreign_key "disco_pedidos", "discos"
+  add_foreign_key "disco_pedidos", "pedidos"
   add_foreign_key "discos", "artistas"
   add_foreign_key "pedidos", "clientes"
 end

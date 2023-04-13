@@ -5,6 +5,7 @@ class Disco < ApplicationRecord
 ###  
   belongs_to :artista
   has_many :canciones
+  has_many :disco_pedidos
 
 ###
 ### Validations
