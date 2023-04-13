@@ -1,6 +1,8 @@
 class ClientesController < ApplicationController
   #before_action :set_cliente, only: %i[ show edit update destroy ]
 
+  before_action :requiere_sesion
+
   # GET /clientes or /clientes.json
   def index
     @pagy, @clientes = pagy(Cliente.all)
@@ -77,6 +79,12 @@ class ClientesController < ApplicationController
       params.delete(:password)
       params[:password_digest] = helpers.digest_password(password, salt)
       params
+    end
+
+    def requiere_sesion
+      if session[:cliente_id].nil?
+        redirect_to sesion_url
+      end
     end
 
 end

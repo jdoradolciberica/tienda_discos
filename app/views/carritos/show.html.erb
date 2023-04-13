@@ -1,0 +1,43 @@
+
+<div class="container d-grid gap-3 my-5 fs-4 border border-2 rounded rounded-2 p-3">
+  <% @carrito.each do |disco, cantidad| %>
+    <div class="row gx-3  py-3">
+      <div class="col-1"><%= image_tag "disco.png", class: "w-100" %></div>
+      <div class="col-3">
+        <div>
+          <a class="fs-5 text-decoration-none link-dark" href="<%= disco_path(disco) %>"><%= disco.nombre %></a>
+        </div>
+        <div>
+          <a class="fs-6 text-decoration-none link-secondary" href="<%= artista_path(disco.artista) %>"><%= disco.artista.nombre %></a>
+        </div>
+      </div>
+      <div class="col-1 ">
+        <p class="fs-5"><%= cantidad %> <span class="text-secondary">uds.</span></p>
+      </div>
+      <div class="col-2 d-flex justify-content-between">
+        <div>
+            <button class="btn btn-warning">-</button>
+            <button class="btn btn-primary">+</button>
+        </div>
+        <div><button class="btn btn-danger">Quitar</button></div>
+        
+      </div>
+      <div class="col-5">
+        <p class="fs-4 text-end">
+        <% if cantidad > 1 %>
+                <span class="fs-6">(<%= disco.precio %> €/ud.)</span>
+            <% end %>
+            <%= disco.precio * cantidad %>€
+        </p>
+      </div>
+      
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-11"></div>
+    <div class="col-1">
+        <%= carrito_total(@carrito) %> €
+    </div>
+  </div>
+</div>

@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'carritos/show'
+  get 'carritos/agregar'
+  get 'carritos/quitar'
+  get 'carritos/menos'
+  get 'carritos/mas'
+  get 'carritos/vaciar'
   get "contactanos", to: "home#contactanos"
   get "faq", to: "home#faq"
   get "sobre", to: "home#sobre"
