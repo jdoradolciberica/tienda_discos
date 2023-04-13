@@ -1,5 +1,5 @@
 class ClientesController < ApplicationController
-  before_action :set_cliente, only: %i[ show edit update destroy ]
+  #before_action :set_cliente, only: %i[ show edit update destroy ]
 
   # GET /clientes or /clientes.json
   def index
@@ -63,7 +63,7 @@ class ClientesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cliente
-      @cliente = Cliente.find(params[:id])
+      @cliente = Cliente.find(params[:clienteid])
     end
 
     # Only allow a list of trusted parameters through.

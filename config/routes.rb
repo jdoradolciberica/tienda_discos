@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get "contactanos", to: "home#contactanos"
   get "faq", to: "home#faq"
   get "sobre", to: "home#sobre"
+  get "cliente", to: "clientes#show"
   get 'sesion', to: "sesiones#new"
   post 'sesion', to: "sesiones#create"
   delete 'sesion', to: "sesiones#destroy"

@@ -1,10 +1,14 @@
-<p style="color: green"><%= notice %></p>
 
-<%= render @pedido %>
-
-<div>
-  <%= link_to "Edit this pedido", edit_pedido_path(@pedido) %> |
-  <%= link_to "Back to pedidos", pedidos_path %>
-
-  <%= button_to "Destroy this pedido", @pedido, method: :delete %>
+<div class="container my-5 fs-4 border border-2 rounded rounded-2 p-3">
+  <div class="row">
+    <div class="col-3">
+        <strong>Codigo:</strong><br> <%= @pedido.codigo %>
+      </div>
+      <div class="col-7">
+        <strong>Destino:</strong><br> <%= @pedido.destino %>
+      </div>
+      <div class="col-2 text-end">
+        <strong>Total:</strong> <br><%= @pedido.total %> €
+      </div>
+  </div>
 </div>
