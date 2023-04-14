@@ -3,21 +3,21 @@
 <h1 class="text-center display-4">Unete</h1>
 <div>
   <%= f.label :nombre, class: "form-label" %>
-  <%= f.text_field :nombre, placeholder: "Nombre", class: "form-control" %>
+  <%= f.text_field :nombre, placeholder: "Nombre", class: "form-control", required: true %>
 </div>
 
 <div>
 <%= f.label :email, class: "form-label" %>
-  <%= f.email_field :email, placeholder: "Email", class: "form-control" %>
+  <%= f.email_field :email, placeholder: "Email", class: "form-control", required: true %>
 </div>
   <div>
   <%= f.label :password, "Contraseña", class: "form-label" %>
-  <%= f.password_field :password, placeholder: "Contraseña", class: "form-control" %>
+  <%= f.password_field :password, placeholder: "Contraseña", class: "form-control", required: true %>
   </div>
   
   <div>
   <%= f.label :password_confirmation, "Repite la contraseña", class: "form-label" %>
-  <%= f.password_field :password_confirmation, placeholder: "Repite la contraseña", class: "form-control" %>
+  <%= f.password_field :password_confirmation, placeholder: "Repite la contraseña", class: "form-control", required: true %>
   </div>
 
   <div class="form-check">

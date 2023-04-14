@@ -13,7 +13,7 @@ class RegistrosController < ApplicationController
       flash[:notice] = "Ahora eres cliente"
       redirect_to root_url
     else
-      flash[:alert] = @cliente.errors.full_messages
+      flash[:alert] = @cliente.errors.full_messages[0]
       redirect_to registro_url
     end
   end
