@@ -1,7 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
 <h1 class="ms-5">Artistas</h1>
-
+<div class="container my-3 w-75">
+  <%= form_with url: artistas_buscar_url, method: :get do |f| %>
+  <div class="input-group">
+      <%= f.text_field :q, placeholder: "Busca un artista", class: "form-control" %>
+      <%= f.submit "Buscar", class: "btn btn-primary" %>
+  </div>
+  <% end %>
+</div>
 
 <div id="discos" class="container m-auto mt-5  ">
     <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">

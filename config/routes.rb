@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'registro', to: "registros#new"
   post 'registro', to: "registros#create"
   root "home#index"
+  get "artistas/buscar"
   get "discos/buscar"
   resources :pedidos
   resources :clientes

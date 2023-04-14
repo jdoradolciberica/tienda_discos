@@ -6,6 +6,11 @@ class ArtistasController < ApplicationController
     @pagy, @artistas = pagy(Artista.all)
   end
 
+  def buscar
+    @pagy, @artistas = pagy(Artista.where("lower(nombre) like lower(?)", "%" + Disco.sanitize_sql_like(params[:q]) + "%"))
+    render "index"
+  end
+
   # GET /artistas/1 or /artistas/1.json
   def show
   end
