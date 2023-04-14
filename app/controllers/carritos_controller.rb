@@ -8,6 +8,7 @@ class CarritosController < ApplicationController
 
   def agregar
     @carrito.agregar(Disco.find(params[:disco_id]))
+    flash[:notice] = "Disco añadido"
     redirect_back fallback_location: carrito_url
   end
 
