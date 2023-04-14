@@ -7,18 +7,29 @@ class CarritosController < ApplicationController
   end
 
   def agregar
+    @carrito.agregar(Disco.find(params[:disco_id]))
+    redirect_back fallback_location: carrito_url
   end
 
   def quitar
+    @carrito.quitar_disco(Disco.find(params[:disco_id]))
+    redirect_to carrito_url
   end
 
   def menos
+    @carrito.quitar_uno(Disco.find(params[:disco_id]))
+    redirect_to carrito_url
   end
 
   def mas
+    puts "Called"
+    @carrito.agregar(Disco.find(params[:disco_id]))
+    redirect_to carrito_url
   end
 
   def vaciar
+    @carrito.quitar_todos
+    redirect_to carrito_url
   end
 
   private
@@ -31,10 +42,8 @@ class CarritosController < ApplicationController
 
   def carga_carrito
     if session[:carrito].nil?
-      session[:carrito] = {1860 => 2, 1845 => 1, 1856 => 3}
+      session[:carrito] = {}
     end
-
-    session[:carrito] = {1860 => 2, 1845 => 1, 1856 => 3}
     @carrito = Carrito.new session[:carrito]
   end
 

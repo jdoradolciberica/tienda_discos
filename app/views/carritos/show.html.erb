@@ -1,5 +1,13 @@
 
 <div class="container d-grid gap-3 my-5 fs-4 border border-2 rounded rounded-2 p-3">
+  <% if @carrito.empty? %>
+    <div class="row">
+      <div class="col-12 text-center p-5 text-secondary display-5">
+        El carrito está vacio
+      </div>
+    </div>   
+  <% end %>
+
   <% @carrito.each do |disco, cantidad| %>
     <div class="row gx-3  py-3">
       <div class="col-1"><%= image_tag "disco.png", class: "w-100" %></div>
@@ -16,10 +24,10 @@
       </div>
       <div class="col-2 d-flex justify-content-between">
         <div>
-            <button class="btn btn-warning">-</button>
-            <button class="btn btn-primary">+</button>
+            <a href="<%= carrito_menos_path(disco.id) %>" class="btn btn-warning">-</a>
+            <a href="<%= carrito_mas_path(disco.id) %>" class="btn btn-primary">+</a>
         </div>
-        <div><button class="btn btn-danger">Quitar</button></div>
+        <div><a href="<%= carrito_quitar_path(disco.id) %>" class="btn btn-danger">Quitar</a></div>
         
       </div>
       <div class="col-5">
@@ -35,9 +43,13 @@
   <% end %>
 
   <div class="row">
-    <div class="col-11"></div>
-    <div class="col-1">
-        <%= carrito_total(@carrito) %> €
+    <div class="col-4 col-md-7"></div>
+    <div class=" col-4 col-md-3 d-flex gap-2">
+    <a href="#" class="btn btn-success">Pagar</a>
+    <a href="<%= carrito_vaciar_path %>" class="btn btn-danger">Vaciar</a>
+    </div>
+    <div class="col-4 col-md-2 text-end">
+        Total <%= carrito_total(@carrito) %> €
     </div>
   </div>
 </div>

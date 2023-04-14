@@ -2,7 +2,7 @@ class Carrito
     def initialize(carrito_sesion)
         @discos_cantidades = {}
         carrito_sesion.each do |disco_id, cantidad|
-            @discos_cantidades[disco_id] = {disco: Disco.find(disco_id), cantidad: cantidad}
+            @discos_cantidades[disco_id.to_i] = {disco: Disco.find(disco_id), cantidad: cantidad.to_i}
         end
     end
 
@@ -16,7 +16,16 @@ class Carrito
         if @discos_cantidades[disco.id].nil?
             @discos_cantidades[disco.id] = {disco: disco, cantidad: 1}
         else
+            
             @discos_cantidades[disco.id][:cantidad] += 1
+        end
+    end
+
+    def quitar_disco(disco)
+        unless @discos_cantidades[disco.id].nil?
+            
+            @discos_cantidades.delete(disco.id)
+            
         end
     end
 
@@ -39,5 +48,9 @@ class Carrito
             carrito_sesion[disco_id] = disco_cantidad[:cantidad]
         end
         return carrito_sesion
+    end
+
+    def empty?
+        return @discos_cantidades.length < 1
     end
 end

@@ -34,7 +34,7 @@
       
       <div class="mt-5 ms-4">
         <p class="fs-4 fw-bold"><%= @disco.precio %> €</p>
-        <a class="btn btn-success" href="#">Añadir al carrito</a>
+        <a class="btn btn-success" href="<%= carrito_agregar_path(@disco.id) %>">Añadir al carrito</a>
       </div>
       
     </div>
