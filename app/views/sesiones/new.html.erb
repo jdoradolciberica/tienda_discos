@@ -4,11 +4,11 @@
 
 <div>
 <%= f.label :email, class: "form-label" %>
-  <%= f.email_field :email, placeholder: "Email", class: "form-control" %>
+  <%= f.email_field :email, placeholder: "Email", class: "form-control", required: true %>
 </div>
   <div>
   <%= f.label :password, "Contraseña", class: "form-label" %>
-  <%= f.password_field :password, placeholder: "Contraseña", class: "form-control" %>
+  <%= f.password_field :password, placeholder: "Contraseña", class: "form-control", required: true %>
   </div>
 
   <%= link_to "No soy cliente", registro_url %>
