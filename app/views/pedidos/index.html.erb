@@ -2,6 +2,12 @@
 
 <h1>Pedidos</h1>
 
+<% if @pedidos.length < 1 %>
+  <div class="text-center p-4 text-secondary">
+    <p class="display-4">No tienes pedidos</p>
+  </div>
+<% end %>
+
 <div class="d-flex flex-column " id="pedidos">
   <% @pedidos.each do |pedido| %>
     <%= render pedido %>
