@@ -7,6 +7,11 @@ class DiscosController < ApplicationController
     
   end
 
+  def buscar
+    @pagy, @discos = pagy(Disco.where("lower(nombre) like lower(?)", "%" + Disco.sanitize_sql_like(params[:q]) + "%"))
+    render "index"
+  end
+
   # GET /discos/1 or /discos/1.json
   def show
   end
