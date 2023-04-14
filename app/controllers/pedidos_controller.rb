@@ -14,6 +14,7 @@ class PedidosController < ApplicationController
   # GET /pedidos/new
   def new
     @pedido = Pedido.new
+    @carrito = Carrito.new session[:carrito]
   end
 
   # GET /pedidos/1/edit
@@ -22,17 +23,20 @@ class PedidosController < ApplicationController
 
   # POST /pedidos or /pedidos.json
   def create
-    @pedido = Pedido.new(pedido_params)
-
-    respond_to do |format|
-      if @pedido.save
-        format.html { redirect_to pedido_url(@pedido), notice: "Pedido was successfully created." }
-        format.json { render :show, status: :created, location: @pedido }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @pedido.errors, status: :unprocessable_entity }
+    @carrito = Carrito.new session[:carrito]
+    ActiveRecord::Base.transaction do
+      @pedido = Pedido.create!(codigo: genera_codigo, destino: params[:destino], cliente: @cliente)
+      @carrito.each do |disco, cantidad|
+        DiscoPedido.create(pedido: @pedido, disco: disco, cantidad: cantidad)
       end
+    rescue ActiveRecord::RecordInvalid
+      flash[:alert] = "El pedido no se pudo completar"
+        redirect_to new_pedido_url
     end
+
+    flash[:notice] = "El pedido se completó con éxito"
+    redirect_to pedido_url(@pedido)
+    
   end
 
   # PATCH/PUT /pedidos/1 or /pedidos/1.json
@@ -66,12 +70,25 @@ class PedidosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pedido_params
-      params.require(:pedido).permit(:codigo, :destino, :total, :cliente_id)
+      params.require(:pedido).permit(:destino)
     end
 
     def requiere_sesion_iniciada
       if @cliente.nil?
         redirect_to sesion_url
+      end
+    end
+
+    def genera_codigo
+      SecureRandom.alphanumeric(12).upcase
+    end
+
+    def nuevo_codigo
+      while true
+        codigo = genera_codigo
+        if Pedido.find_by(codigo: codigo)
+          return codigo
+        end
       end
     end
 end
