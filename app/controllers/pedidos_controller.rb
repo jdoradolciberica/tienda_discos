@@ -15,6 +15,9 @@ class PedidosController < ApplicationController
   def new
     @pedido = Pedido.new
     @carrito = Carrito.new session[:carrito]
+    if @carrito.empty?
+      redirect_to root_url
+    end
   end
 
   # GET /pedidos/1/edit
@@ -24,6 +27,9 @@ class PedidosController < ApplicationController
   # POST /pedidos or /pedidos.json
   def create
     @carrito = Carrito.new session[:carrito]
+    if @carrito.empty?
+      redirect_to root_url
+    end
     ActiveRecord::Base.transaction do
       @pedido = Pedido.create!(codigo: genera_codigo, destino: params[:destino], cliente: @cliente)
       @carrito.each do |disco, cantidad|
@@ -33,7 +39,8 @@ class PedidosController < ApplicationController
       flash[:alert] = "El pedido no se pudo completar"
         redirect_to new_pedido_url
     end
-
+    @carrito.quitar_todos
+    session[:carrito] = @carrito.to_hash
     flash[:notice] = "El pedido se completó con éxito"
     redirect_to pedido_url(@pedido)
     

@@ -5,8 +5,11 @@
       <div class="col-12 text-center p-5 text-secondary display-5">
         El carrito está vacio
       </div>
-    </div>   
-  <% end %>
+    </div>
+  <% else %>
+
+
+  
 
   <% @carrito.each do |disco, cantidad| %>
     <div class="row gx-3  py-3">
@@ -52,4 +55,5 @@
         Total <%= carrito_total(@carrito) %> €
     </div>
   </div>
+  <% end %>
 </div>
