@@ -2,7 +2,7 @@
   <a href="<%= artista_path(artista) %>"><%= image_tag "artista.png", class: "card-img-top" %></a>
   
   <div class="card-body">
-    <a class="text-decoration-none link-dark" href="<%= artista_path(artista) %>"><h6 class="card-subtitle text-truncate fs-4 mt-2"><%= artista.nombre %></h6></a>
+    <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="<%= artista.nombre %>" class="text-decoration-none link-dark" href="<%= artista_path(artista) %>"><h6 class="card-subtitle text-truncate fs-4 mt-2"><%= artista.nombre %></h6></a>
   </div>
 
 </div>
