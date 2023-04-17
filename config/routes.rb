@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   root "home#index"
   get "artistas/buscar"
   get "discos/buscar"
-  resources :pedidos
+  resources :pedidos, only: %i[ index show new create ]
   resources :clientes
   resources :canciones
   resources :discos

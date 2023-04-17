@@ -1,6 +1,9 @@
 class PedidosController < ApplicationController
   before_action :set_pedido, only: %i[ show edit update destroy ]
   before_action :requiere_sesion
+  before_action :carga_carrito, only: %i[ new create ]
+  before_action :carrito_no_vacio, only: %i[ new create ]
+  after_action :guarda_carrito, only: %i[ create ]
 
   # GET /pedidos or /pedidos.json
   def index
@@ -13,23 +16,14 @@ class PedidosController < ApplicationController
 
   # GET /pedidos/new
   def new
-    @pedido = Pedido.new
-    @carrito = Carrito.new session[:carrito]
     if @carrito.empty?
       redirect_to root_url
     end
-  end
-
-  # GET /pedidos/1/edit
-  def edit
+    @pedido = Pedido.new
   end
 
   # POST /pedidos or /pedidos.json
   def create
-    @carrito = Carrito.new session[:carrito]
-    if @carrito.empty?
-      redirect_to root_url
-    end
     ActiveRecord::Base.transaction do
       @pedido = Pedido.create!(codigo: genera_codigo, destino: params[:destino], cliente: @cliente)
       @carrito.each do |disco, cantidad|
@@ -40,33 +34,8 @@ class PedidosController < ApplicationController
         redirect_to new_pedido_url
     end
     @carrito.quitar_todos
-    session[:carrito] = @carrito.to_hash
     flash[:notice] = "El pedido se completó con éxito"
     redirect_to pedido_url(@pedido)
-    
-  end
-
-  # PATCH/PUT /pedidos/1 or /pedidos/1.json
-  def update
-    respond_to do |format|
-      if @pedido.update(pedido_params)
-        format.html { redirect_to pedido_url(@pedido), notice: "Pedido was successfully updated." }
-        format.json { render :show, status: :ok, location: @pedido }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @pedido.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /pedidos/1 or /pedidos/1.json
-  def destroy
-    @pedido.destroy
-
-    respond_to do |format|
-      format.html { redirect_to pedidos_url, notice: "Pedido was successfully destroyed." }
-      format.json { head :no_content }
-    end
   end
 
   private
@@ -96,6 +65,12 @@ class PedidosController < ApplicationController
         if Pedido.find_by(codigo: codigo)
           return codigo
         end
+      end
+    end
+
+    def carrito_no_vacio
+      if @carrito.empty?
+        redirect_to root_url
       end
     end
 end
