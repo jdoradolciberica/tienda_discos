@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get "artistas/buscar"
   get "discos/buscar"
   resources :pedidos, only: %i[ index show new create ]
-  resources :canciones
+  resources :canciones, only: %i[ index show ]
   resources :discos
   resources :artistas
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
