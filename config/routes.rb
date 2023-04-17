@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get "discos/buscar"
   resources :pedidos, only: %i[ index show new create ]
   resources :canciones, only: %i[ index show ]
-  resources :discos
+  resources :discos, only: %i[ index show ]
   resources :artistas
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
