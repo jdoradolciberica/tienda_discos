@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      cliente:
+        password: "Contraseña"
+        password_confirmation: "Contraseña de confirmación"

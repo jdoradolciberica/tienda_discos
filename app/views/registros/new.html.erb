@@ -13,6 +13,15 @@
   <div>
   <%= f.label :password, "Contraseña", class: "form-label" %>
   <%= f.password_field :password, placeholder: "Contraseña", class: "form-control", required: true %>
+  <div class="form-text">
+    <ul>
+      <li>Más de 8 caracteres</li>
+      <li>Al menos una letra minúscula</li>
+      <li>Al menos una letra mayúscula</li>
+      <li>Al menos un dígito</li>
+      <li>Al menos un símbolo (e.g. $,%,#)</li>
+    </ul>
+  </div>
   </div>
   
   <div>
