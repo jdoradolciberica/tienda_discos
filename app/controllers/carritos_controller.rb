@@ -32,9 +32,6 @@ class CarritosController < ApplicationController
     @carrito.quitar_todos
     redirect_to carrito_url
   end
-
-  private
-
   
 end
 
