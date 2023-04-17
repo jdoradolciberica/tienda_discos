@@ -49,11 +49,31 @@
     <div class="col-4 col-md-7"></div>
     <div class=" col-4 col-md-3 d-flex gap-2">
     <a href="<%= new_pedido_path %>" class="btn btn-success">Pagar</a>
-    <a href="<%= carrito_vaciar_path %>" class="btn btn-danger">Vaciar</a>
+    <!--<a href="<%= carrito_vaciar_path %>" class="btn btn-danger">Vaciar</a>-->
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#vaciarModal">Vaciar</button>
     </div>
     <div class="col-4 col-md-2 text-end">
         Total <%= carrito_total(@carrito) %> €
     </div>
   </div>
+  <!-- Modal -->
+  <div class="modal fade" id="vaciarModal" tabindex="-1" aria-labelledby="vaciarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Vaciar carrito</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body fs-5">
+          Todos los elemenos del carrito se quitaran,<br> ¿vaciar el carrito?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <a href="<%= carrito_vaciar_path %>" class="btn btn-danger">Vaciar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <% end %>
 </div>

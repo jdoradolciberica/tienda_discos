@@ -6,7 +6,7 @@
   <% @clientes.each do |cliente| %>
     <%= render cliente %>
     <p>
-      <%= link_to "Show this cliente", cliente %>
+      <%= link_to "Show this cliente", cliente_url(cliente) %>
     </p>
   <% end %>
 </div>

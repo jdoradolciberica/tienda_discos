@@ -1,7 +1,7 @@
 class ClientesController < ApplicationController
   #before_action :set_cliente, only: %i[ show edit update destroy ]
 
-  before_action :requiere_sesion
+  before_action :requiere_sesion, only: %i[perfil]
 
   # GET /clientes or /clientes.json
   def index
@@ -10,6 +10,7 @@ class ClientesController < ApplicationController
 
   # GET /clientes/1 or /clientes/1.json
   def show
+    @cliente
   end
 
   # GET /clientes/new
@@ -19,6 +20,11 @@ class ClientesController < ApplicationController
 
   # GET /clientes/1/edit
   def edit
+  end
+
+  # GET /perfil
+  def perfil
+    render "show"
   end
 
   # POST /clientes or /clientes.json
@@ -81,10 +87,10 @@ class ClientesController < ApplicationController
       params
     end
 
-    def requiere_sesion
-      if session[:cliente_id].nil?
-        redirect_to sesion_url
-      end
-    end
+    # def requiere_sesion
+    #   if session[:cliente_id].nil?
+    #     redirect_to sesion_url
+    #   end
+    # end
 
 end

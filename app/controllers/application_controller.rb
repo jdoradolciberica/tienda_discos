@@ -21,4 +21,21 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    def requiere_sesion
+        if session[:cliente_id].nil?
+          redirect_to sesion_url
+        end
+    end
+
+    def carga_carrito
+        if session[:carrito].nil?
+          session[:carrito] = {}
+        end
+        @carrito = Carrito.new session[:carrito]
+      end
+    
+      def guarda_carrito
+        session[:carrito] = @carrito.to_hash
+      end
+
 end

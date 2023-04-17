@@ -1,6 +1,6 @@
 class PedidosController < ApplicationController
   before_action :set_pedido, only: %i[ show edit update destroy ]
-  before_action :requiere_sesion_iniciada
+  before_action :requiere_sesion
 
   # GET /pedidos or /pedidos.json
   def index
