@@ -26,7 +26,11 @@
         <p class="fs-5"><%= disco_pedido.cantidad %> <span class="text-secondary">uds.</span></p>
       </div>
       <div class="col-3">
-        <p class="fs-4 text-end"><%= disco_pedido.disco.precio * disco_pedido.cantidad %></p>
+        <p class="fs-4 text-end">
+        <% if disco_pedido.cantidad > 1 %>
+          <span class="fs-6">(<%= disco_pedido.disco.precio %> €/ud.)</span>
+        <% end %>
+        <%= disco_pedido.disco.precio * disco_pedido.cantidad %>€</p>
       </div>
     </div>
   <% end %>
