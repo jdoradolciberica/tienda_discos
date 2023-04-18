@@ -1,0 +1,12 @@
+
+<div class="container m-5 p-3">
+  <%= render @cliente %>
+  <div>
+  <%= link_to "Edit this cliente", edit_admin_cliente_path(@cliente) %> |
+  <%= link_to "Back to clientes", admin_clientes_path %>
+
+  <%= button_to "Destroy this cliente", [:admin, @cliente], method: :delete, class: "mt-2 btn btn-danger" %>
+</div>
+</div>
+
+

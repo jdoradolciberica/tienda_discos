@@ -1,0 +1,21 @@
+
+
+<h1 class="text-center p-3">Clientes</h1>
+
+
+
+<div class="container" id="clientes">
+<%= link_to "New cliente", new_admin_cliente_path, class: "d-block mb-4" %>
+  <% @clientes.each do |cliente| %>
+    <a href="<%= admin_cliente_path(cliente) %>" class="d-flex gap-2 align-items-center text-decoration-none text-secondary border border-1 rounded rounded-2 mb-2 p-2">
+      <%= render cliente %>
+    </a>
+  <% end %>
+</div>
+
+<div class="d-flex mt-4 m-auto justify-content-center">
+<%== pagy_bootstrap_nav(@pagy) %>
+</div>
+
+
+

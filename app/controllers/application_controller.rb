@@ -14,6 +14,9 @@ class ApplicationController < ActionController::Base
     end
 
     def seleccionar_layout
+        unless session[:admin].nil?
+          return "admin"
+        end
         if session[:cliente_id].nil?
             return "guest"
         else
@@ -37,5 +40,17 @@ class ApplicationController < ActionController::Base
       def guarda_carrito
         session[:carrito] = @carrito.to_hash
       end
+    
+    def requiere_ser_admin
+      if session[:admin].nil?
+        redirect_to admin_sesiones_new_url
+      end
+    end
+    
+    def requiere_no_ser_admin
+      unless session[:admin].nil?
+        redirect_to admin_url
+      end
+    end
 
 end

@@ -1,0 +1,14 @@
+<h1 class="text-center m-3">Editar cliente</h1>
+
+<div class="container">
+<%= render "form", cliente: @cliente %>
+
+<br>
+
+<div>
+  <%= link_to "Show this cliente", [:admin, @cliente] %> |
+  <%= link_to "Back to clientes", admin_clientes_path %>
+</div>
+</div>
+
+

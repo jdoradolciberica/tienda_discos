@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get "", to: "home#index"
+    get 'home/index'
+    get 'sesiones/new'
+    post 'sesiones/create'
+    get 'sesiones/destroy'
+    resources :clientes
+  end
   get 'carrito', to: "carritos#show", as: "carrito"
   get 'carrito/agregar/:disco_id', to: "carritos#agregar", as: "carrito_agregar"
   get 'carrito/quitar/:disco_id', to: "carritos#quitar", as: "carrito_quitar"
