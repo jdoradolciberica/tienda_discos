@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   namespace :admin do
+    resources :artistas
     get "", to: "home#index"
     get 'home/index'
     get 'sesiones/new'

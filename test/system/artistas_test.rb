@@ -14,9 +14,6 @@ class ArtistaTest < ApplicationSystemTestCase
     visit artistas_url
     click_on "New artista"
 
-    fill_in "Fecha nacimiento", with: @artista.fecha_nacimiento
-    fill_in "Nombre", with: @artista.nombre
-    fill_in "Procedencia", with: @artista.procedencia
     click_on "Create Artista"
 
     assert_text "Artista was successfully created"
@@ -27,9 +24,6 @@ class ArtistaTest < ApplicationSystemTestCase
     visit artista_url(@artista)
     click_on "Edit this artista", match: :first
 
-    fill_in "Fecha nacimiento", with: @artista.fecha_nacimiento
-    fill_in "Nombre", with: @artista.nombre
-    fill_in "Procedencia", with: @artista.procedencia
     click_on "Update Artista"
 
     assert_text "Artista was successfully updated"
