@@ -1,5 +1,5 @@
 <div id="<%= dom_id disco %>" class="card" >
-  <a href="<%= disco_path(disco) %>"><%= image_tag "disco.png", class: "card-img-top" %></a>
+  <a href="<%= disco_path(disco) %>"><%= image_tag disco.portada.url, class: "card-img-top" %></a>
   <div class="card-body">
     <a data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="<%= disco.nombre %>" class="text-decoration-none" href="<%= disco_path(disco) %>"><h5 class="card-title text-truncate link-dark fs-4"><%= disco.nombre %></h5></a>
     <a class="text-decoration-none" href="<%= artista_path(disco.artista) %>"><h6 class="card-subtitle text-truncate link-secondary"><%= disco.artista.nombre %></h6></a>

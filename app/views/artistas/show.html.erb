@@ -17,7 +17,7 @@
           <% @artista.discos.each do |disco| %>
             <a href="<%= disco_path(disco) %>" class="list-group-item d-flex align-items-center justify-content-between">
               
-              <span><%= image_tag "disco.png", size: "50x50" %><span class="ms-2"><%= disco.nombre %></span></span>
+              <span><%= image_tag disco.portada.url, size: "50x50" %><span class="ms-2"><%= disco.nombre %></span></span>
               
               <span><%= disco.fecha_lanzamiento.year %></span>
             </a>

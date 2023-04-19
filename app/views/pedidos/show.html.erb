@@ -13,7 +13,7 @@
   </div>
   <% @pedido.disco_pedidos.each do |disco_pedido| %>
     <div class="row gx-3 border-top border-1 pt-3">
-      <div class="col-1"><%= image_tag "disco.png", class: "w-100" %></div>
+      <div class="col-1"><%= image_tag disco_pedido.disco.portada.url, class: "w-100" %></div>
       <div class="col-4">
         <div>
           <a class="fs-5 text-decoration-none link-dark" href="<%= disco_path(disco_pedido.disco) %>"><%= disco_pedido.disco.nombre %></a>

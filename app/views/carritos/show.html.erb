@@ -13,7 +13,7 @@
 
   <% @carrito.each do |disco, cantidad| %>
     <div class="row gx-3  py-3">
-      <div class="col-1"><%= image_tag "disco.png", class: "w-100" %></div>
+      <div class="col-1"><%= image_tag disco.portada.url, class: "w-100" %></div>
       <div class="col-3">
         <div>
           <a class="fs-5 text-decoration-none link-dark" href="<%= disco_path(disco) %>"><%= disco.nombre %></a>

@@ -1,4 +1,6 @@
 class Disco < ApplicationRecord
+
+  mount_uploader :portada, PortadaUploader
   
 ###
 ### Associations

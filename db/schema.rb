@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_18_090156) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_19_091958) do
   create_table "administradors", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "user"
     t.string "password_digest"
@@ -63,6 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_18_090156) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "fecha_lanzamiento", null: false
+    t.string "portada"
     t.index ["artista_id"], name: "index_discos_on_artista_id"
   end
 

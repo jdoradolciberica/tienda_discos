@@ -67,6 +67,6 @@ class Admin::DiscosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def disco_params
-      params.require(:disco).permit(:artista_id, :nombre, :descripcion, :fecha_lanzamiento, :precio, :genero)
+      params.require(:disco).permit(:artista_id, :nombre, :descripcion, :fecha_lanzamiento, :precio, :genero, :portada)
     end
 end
