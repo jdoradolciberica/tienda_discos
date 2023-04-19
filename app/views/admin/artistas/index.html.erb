@@ -8,7 +8,7 @@
 <%= link_to "Nuevo artista", new_admin_artista_path, class: "d-block mb-4" %>
   <% @artistas.each do |artista| %>
     <a href="<%= admin_artista_path(artista) %>" class="d-flex gap-2 align-items-center text-decoration-none text-secondary border border-1 rounded rounded-2 mb-2 p-2">
-      <%= render artista %>
+      <%= render artista, mostrar_imagen: false %>
     </a>
   <% end %>
 </div>

@@ -3,3 +3,6 @@
     <p>Nombre: <%= artista.nombre %></p>
     <p>Fecha nacimiento: <%= artista.fecha_nacimiento %></p>
     <p>Procedencia: <%= artista.procedencia %></p>
+    <% if mostrar_imagen %>
+      <%= image_tag artista.imagen.url, size: "200x200" %>
+    <% end %>

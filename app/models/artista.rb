@@ -1,5 +1,5 @@
 class Artista < ApplicationRecord
-
+    mount_uploader :imagen, ImagenUploader
 ###
 ### Associations
 ###

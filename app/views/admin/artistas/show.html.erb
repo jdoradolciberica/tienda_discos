@@ -1,6 +1,6 @@
 
 <div class="container m-5 p-3">
-  <%= render @artista %>
+  <%= render @artista ,mostrar_imagen: true %>
   <div>
   <%= link_to "Editar este artista", edit_admin_artista_path(@artista) %> |
   <%= link_to "Volver a lista de artistas", admin_artistas_path %>

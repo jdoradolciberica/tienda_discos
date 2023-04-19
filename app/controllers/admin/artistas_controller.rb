@@ -70,6 +70,6 @@ class Admin::ArtistasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def artista_params
-      params.require(:artista).permit(:fecha_nacimiento, :nombre, :procedencia)
+      params.require(:artista).permit(:fecha_nacimiento, :nombre, :procedencia, :imagen)
     end
 end

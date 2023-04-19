@@ -7,7 +7,6 @@
     <p>Fecha lanzamiento: <%= disco.fecha_lanzamiento %></p>
     <% if muestra_descripcion %>
       <p>Descripción: <%= disco.descripcion %></p>
-      <p>Imagen: </p>
-      <%= image_tag disco.portada.url, size: "100x100" %>
+      <%= image_tag disco.portada.url, size: "200x200" %>
     <% end %>
 
