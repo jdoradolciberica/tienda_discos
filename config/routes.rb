@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   namespace :admin do
+    resources :pedidos
     resources :canciones
     resources :discos
     resources :artistas

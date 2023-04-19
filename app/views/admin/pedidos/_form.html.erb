@@ -1,0 +1,29 @@
+<%= form_with(model: [:admin, pedido]) do |form| %>
+  <% if pedido.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(pedido.errors.count, "error") %> prohibited this pedido from being saved:</h2>
+
+      <ul>
+        <% pedido.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mt-2">
+    <%= form.label :codigo %>
+    <%= form.text_field :codigo %>
+  </div>
+  <div class="mt-2">
+    <%= form.label :cliente_id %>
+    <%= form.text_field :cliente_id %>
+  </div>
+   <div class="mt-2">
+    <%= form.label :destino %>
+    <%= form.text_field :destino %>
+  </div>
+  <div>
+    <%= form.submit class: "btn btn-success mt-2" %>
+  </div>
+<% end %>

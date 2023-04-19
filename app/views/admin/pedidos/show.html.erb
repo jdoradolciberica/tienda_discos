@@ -1,0 +1,10 @@
+
+<div class="container m-5 p-3">
+  <%= render @pedido %>
+  <div>
+  <%= link_to "Edita este pedido", edit_admin_pedido_path(@pedido) %> |
+  <%= link_to "Volver a lista de pedidos", admin_pedidos_path %>
+
+  <%= button_to "Borrar este pedido", [:admin, @pedido], method: :delete, class: "mt-2 btn btn-danger" %>
+</div>
+</div>

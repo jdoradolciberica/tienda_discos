@@ -1,0 +1,19 @@
+
+<h1 class="text-center p-3">Pedidos</h1>
+
+
+
+<div class="container" id="pedidos">
+<%= link_to "Nuevo pedido", new_admin_pedido_path, class: "d-block mb-4" %>
+  <% @pedidos.each do |pedido| %>
+    <a href="<%= admin_pedido_path(pedido) %>" class="d-flex gap-2 align-items-center text-decoration-none text-secondary border border-1 rounded rounded-2 mb-2 p-2">
+      <%= render pedido %>
+    </a>
+  <% end %>
+</div>
+
+<div class="d-flex mt-4 m-auto justify-content-center">
+<%== pagy_bootstrap_nav(@pagy) %>
+</div>
+
+
