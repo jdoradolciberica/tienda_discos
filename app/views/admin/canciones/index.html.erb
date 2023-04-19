@@ -1,0 +1,15 @@
+
+<h1 class="text-center p-3">Canciones</h1>
+
+<div class="container" id="canciones">
+<%= link_to "Nuevo cancion", new_admin_cancion_path, class: "d-block mb-4" %>
+  <% @canciones.each do |cancion| %>
+    <a href="<%= admin_cancion_path(cancion) %>" class="d-flex gap-2 align-items-center text-decoration-none text-secondary border border-1 rounded rounded-2 mb-2 p-2">
+      <%= render cancion %>
+    </a>
+  <% end %>
+</div>
+
+<div class="d-flex mt-4 m-auto justify-content-center">
+<%== pagy_bootstrap_nav(@pagy) %>
+</div>

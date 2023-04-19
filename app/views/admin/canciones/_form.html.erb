@@ -1,0 +1,29 @@
+<%= form_with(model: [:admin, cancion]) do |form| %>
+  <% if cancion.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(cancion.errors.count, "error") %> prohibited this cancion from being saved:</h2>
+
+      <ul>
+        <% cancion.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mt-2">
+    <%= form.label :titulo %>
+    <%= form.text_field :titulo %>
+  </div>
+   <div class="mt-2">
+    <%= form.label :disco_id %>
+    <%= form.text_field :disco_id %>
+  </div>
+  <div class="mt-2">
+    <%= form.label :duracion %>
+    <%= form.number_field :duracion %>
+  </div>
+  <div>
+    <%= form.submit class: "btn btn-success mt-2" %>
+  </div>
+<% end %>

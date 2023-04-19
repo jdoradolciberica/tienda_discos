@@ -14,9 +14,6 @@ class CancionsTest < ApplicationSystemTestCase
     visit canciones_url
     click_on "New cancion"
 
-    fill_in "Disco", with: @cancion.disco_id
-    fill_in "Duracion", with: @cancion.duracion
-    fill_in "Titulo", with: @cancion.titulo
     click_on "Create Cancion"
 
     assert_text "Cancion was successfully created"
@@ -27,9 +24,6 @@ class CancionsTest < ApplicationSystemTestCase
     visit cancion_url(@cancion)
     click_on "Edit this cancion", match: :first
 
-    fill_in "Disco", with: @cancion.disco_id
-    fill_in "Duracion", with: @cancion.duracion
-    fill_in "Titulo", with: @cancion.titulo
     click_on "Update Cancion"
 
     assert_text "Cancion was successfully updated"

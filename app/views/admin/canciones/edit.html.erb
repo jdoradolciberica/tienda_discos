@@ -1,0 +1,12 @@
+<h1 class="text-center m-3">Editar cancion</h1>
+
+<div class="container">
+<%= render "form", cancion: @cancion %>
+
+<br>
+
+<div>
+  <%= link_to "Muestra este cancion", [:admin, @cancion] %> |
+  <%= link_to "Vuelve a lista de canciones", admin_canciones_path %>
+</div>
+</div>

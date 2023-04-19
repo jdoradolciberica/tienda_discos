@@ -1,0 +1,10 @@
+
+<div class="container m-5 p-3">
+  <%= render @cancion %>
+  <div>
+  <%= link_to "Edita este cancion", edit_admin_cancion_path(@cancion) %> |
+  <%= link_to "Volver a lista de canciones", admin_canciones_path %>
+
+  <%= button_to "Borrar este cancion", [:admin, @cancion], method: :delete, class: "mt-2 btn btn-danger" %>
+</div>
+</div>
