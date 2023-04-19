@@ -1,0 +1,19 @@
+
+
+<h1 class="text-center p-3">Discos</h1>
+
+
+
+<div class="container" id="discos">
+<%= link_to "Nuevo disco", new_admin_disco_path, class: "d-block mb-4" %>
+  <% @discos.each do |disco| %>
+    <a href="<%= admin_disco_path(disco) %>" class="d-flex gap-2 align-items-center text-decoration-none text-secondary border border-1 rounded rounded-2 mb-2 p-2">
+      <%= render disco, muestra_descripcion: false %>
+    </a>
+  <% end %>
+</div>
+
+<div class="d-flex mt-4 m-auto justify-content-center">
+<%== pagy_bootstrap_nav(@pagy) %>
+</div>
+

@@ -1,0 +1,12 @@
+
+<div class="container m-5 p-3">
+  <%= render @disco, muestra_descripcion: true %>
+  <div>
+  <%= link_to "Edita este disco", edit_admin_disco_path(@disco) %> |
+  <%= link_to "Volver a lista de discos", admin_discos_path %>
+
+  <%= button_to "Borrar este disco", [:admin, @disco], method: :delete, class: "mt-2 btn btn-danger" %>
+</div>
+</div>
+
+

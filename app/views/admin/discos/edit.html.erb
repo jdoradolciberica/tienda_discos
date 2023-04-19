@@ -1,0 +1,12 @@
+<h1 class="text-center m-3">Editar disco</h1>
+
+<div class="container">
+<%= render "form", disco: @disco %>
+
+<br>
+
+<div>
+  <%= link_to "Muestra este disco", [:admin, @disco] %> |
+  <%= link_to "Vuelve a lista de discos", admin_discos_path %>
+</div>
+</div>

@@ -1,0 +1,11 @@
+
+    <p>Id: <%= disco.id %></p>
+    <p>Nombre: <%= disco.nombre %></p>
+    <p>Artista: <%= disco.artista.nombre %></p>
+    <p>Género: <%= disco.genero %></p>
+    <p>Precio: <%= disco.precio %></p>
+    <p>Fecha lanzamiento: <%= disco.fecha_lanzamiento %></p>
+    <% if muestra_descripcion %>
+      <p>Descripción: <%= disco.descripcion %></p>
+    <% end %>
+
