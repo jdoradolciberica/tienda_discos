@@ -25,7 +25,7 @@ class Admin::DiscosController < ApplicationController
 
     respond_to do |format|
       if @disco.save
-        format.html { redirect_to admin_disco_url(@disco), notice: "Disco was successfully created." }
+        format.html { redirect_to admin_disco_url(@disco), notice: "Disco ha sido creado." }
         format.json { render :show, status: :created, location: @disco }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class Admin::DiscosController < ApplicationController
   def update
     respond_to do |format|
       if @disco.update(disco_params)
-        format.html { redirect_to admin_disco_url(@disco), notice: "Disco was successfully updated." }
+        format.html { redirect_to admin_disco_url(@disco), notice: "Disco ha sido actualizado." }
         format.json { render :show, status: :ok, location: @disco }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -49,10 +49,12 @@ class Admin::DiscosController < ApplicationController
 
   # DELETE /admin/discos/1 or /admin/discos/1.json
   def destroy
+    @disco.disco_pedidos.destroy_all
+    @disco.canciones.destroy_all
     @disco.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_discos_url, notice: "Disco was successfully destroyed." }
+      format.html { redirect_to admin_discos_url, notice: "Disco ha sido borrado." }
       format.json { head :no_content }
     end
   end
@@ -65,6 +67,6 @@ class Admin::DiscosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def disco_params
-      params.fetch(:disco, {})
+      params.require(:disco).permit(:artista_id, :nombre, :descripcion, :fecha_lanzamiento, :precio, :genero)
     end
 end
