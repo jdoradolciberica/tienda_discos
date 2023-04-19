@@ -1,0 +1,29 @@
+<%= form_with(model: [:admin, disco_pedido]) do |form| %>
+  <% if disco_pedido.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(disco_pedido.errors.count, "error") %> prohibited this disco_pedido from being saved:</h2>
+
+      <ul>
+        <% disco_pedido.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mt-2">
+    <%= form.label :disco_id %>
+    <%= form.text_field :disco_id %>
+  </div>
+   <div class="mt-2">
+    <%= form.label :pedido_id %>
+    <%= form.text_field :pedido_id %>
+  </div>
+   <div class="mt-2">
+    <%= form.label :cantidad %>
+    <%= form.number_field :cantidad %>
+  </div>
+  <div>
+    <%= form.submit class: "btn btn-success mt-2" %>
+  </div>
+<% end %>

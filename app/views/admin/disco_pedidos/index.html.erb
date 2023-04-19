@@ -1,0 +1,19 @@
+<h1 class="text-center p-3">Pedido Discos</h1>
+
+
+
+<div class="container" id="disco_pedidos">
+<%= link_to "Nuevo disco pedido", new_admin_disco_pedido_path, class: "d-block mb-4" %>
+  <% @disco_pedidos.each do |disco_pedido| %>
+    <a href="<%= admin_disco_pedido_path(disco_pedido) %>" class="d-flex gap-2 align-items-center text-decoration-none text-secondary border border-1 rounded rounded-2 mb-2 p-2">
+      <%= render disco_pedido %>
+    </a>
+  <% end %>
+</div>
+
+<div class="d-flex mt-4 m-auto justify-content-center">
+<%== pagy_bootstrap_nav(@pagy) %>
+</div>
+
+
+

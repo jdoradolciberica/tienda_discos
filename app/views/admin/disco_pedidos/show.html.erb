@@ -1,0 +1,10 @@
+
+<div class="container m-5 p-3">
+  <%= render @disco_pedido %>
+  <div>
+  <%= link_to "Edita este disco pedido", edit_admin_disco_pedido_path(@disco_pedido) %> |
+  <%= link_to "Volver a lista de disco pedidos", admin_disco_pedidos_path %>
+
+  <%= button_to "Borrar este disco pedido", [:admin, @disco_pedido], method: :delete, class: "mt-2 btn btn-danger" %>
+</div>
+</div>
