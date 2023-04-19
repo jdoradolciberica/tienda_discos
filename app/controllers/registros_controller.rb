@@ -1,6 +1,7 @@
 class RegistrosController < ApplicationController
 
   before_action :requiere_no_sesion
+  before_action :requiere_no_ser_admin
 
   def new
     @cliente = Cliente.new

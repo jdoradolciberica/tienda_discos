@@ -1,6 +1,6 @@
 class Admin::ClientesController < ApplicationController
   before_action :set_cliente, only: %i[ show edit update destroy ]
-
+  before_action :requiere_ser_admin
   # GET /admin/clientes or /admin/clientes.json
   def index
     @pagy, @clientes = pagy(Cliente.all)

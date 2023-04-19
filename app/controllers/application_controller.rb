@@ -30,6 +30,13 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    def requiere_no_sesion
+      unless session[:cliente_id].nil?
+        flash[:notice] = "Cierra sesión para acceder"
+        redirect_to root_url
+      end
+    end
+
     def carga_carrito
         if session[:carrito].nil?
           session[:carrito] = {}
@@ -49,6 +56,7 @@ class ApplicationController < ActionController::Base
     
     def requiere_no_ser_admin
       unless session[:admin].nil?
+        flash[:notice] = "Deja de ser admin para acceder"
         redirect_to admin_url
       end
     end

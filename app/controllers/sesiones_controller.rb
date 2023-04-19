@@ -1,6 +1,7 @@
 class SesionesController < ApplicationController
   before_action :requerir_sesion_iniciada, only: [:destroy]
   before_action :requerir_no_sesion_iniciada, only: [:new, :create]
+  before_action :requiere_no_ser_admin
 
   def new
     @cliente = Cliente.new

@@ -1,6 +1,6 @@
 class Admin::PedidosController < ApplicationController
   before_action :set_pedido, only: %i[ show edit update destroy ]
-
+  before_action :requiere_ser_admin
   # GET /admin/pedidos or /admin/pedidos.json
   def index
     @pagy, @pedidos = pagy(Pedido.all)

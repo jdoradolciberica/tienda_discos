@@ -1,6 +1,6 @@
 class Admin::DiscosController < ApplicationController
   before_action :set_disco, only: %i[ show edit update destroy ]
-
+  before_action :requiere_ser_admin
   # GET /admin/discos or /admin/discos.json
   def index
     @pagy, @discos = pagy(Disco.all)

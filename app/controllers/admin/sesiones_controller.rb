@@ -2,6 +2,7 @@ class Admin::SesionesController < ApplicationController
 
   before_action :requiere_ser_admin, only: %i[ destroy ]
   before_action :requiere_no_ser_admin, only: %i[ new create ]
+  before_action :requiere_no_sesion
 
   def new
     @admin = Administrador.new
